@@ -1,0 +1,7 @@
+C:\Users\CAROLINA-GUTIERREZ\Documents\SharpDevelop Projects\AVATAR\AVATAR\obj\Debug\AVATAR.csprojResolveAssemblyReference.cache
+C:\Users\CAROLINA-GUTIERREZ\Documents\SharpDevelop Projects\AVATAR\AVATAR\obj\Debug\MainForm.resources
+C:\Users\CAROLINA-GUTIERREZ\Documents\SharpDevelop Projects\AVATAR\AVATAR\obj\Debug\AVATAR.csproj.GenerateResource.Cache
+C:\Users\CAROLINA-GUTIERREZ\Documents\SharpDevelop Projects\AVATAR\AVATAR\obj\Debug\AVATAR.MainForm.resources
+C:\Users\DD\Desktop\AVATAR\obj\Debug\AVATAR.csprojResolveAssemblyReference.cache
+C:\Users\DD\Desktop\AVATAR\obj\Debug\AVATAR.MainForm.resources
+C:\Users\DD\Desktop\AVATAR\obj\Debug\AVATAR.csproj.GenerateResource.Cache
