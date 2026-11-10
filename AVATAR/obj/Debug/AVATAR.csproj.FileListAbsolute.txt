@@ -5,3 +5,6 @@ C:\Users\CAROLINA-GUTIERREZ\Documents\SharpDevelop Projects\AVATAR\AVATAR\obj\De
 C:\Users\DD\Desktop\AVATAR\obj\Debug\AVATAR.csprojResolveAssemblyReference.cache
 C:\Users\DD\Desktop\AVATAR\obj\Debug\AVATAR.MainForm.resources
 C:\Users\DD\Desktop\AVATAR\obj\Debug\AVATAR.csproj.GenerateResource.Cache
+C:\Users\User\Downloads\AVATAR\obj\Debug\AVATAR.csprojResolveAssemblyReference.cache
+C:\Users\User\Downloads\AVATAR\obj\Debug\AVATAR.MainForm.resources
+C:\Users\User\Downloads\AVATAR\obj\Debug\AVATAR.csproj.GenerateResource.Cache

@@ -1,6 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
 
 namespace AVATAR
 {
@@ -189,6 +192,78 @@ namespace AVATAR
             else
             {
                 MessageBox.Show("No hay acciones recientes que deshacer.", "Aviso");
+            }
+        }
+
+        // GUARDAR HISTORIAL EN ARCHIVO TXT
+        public void ExportarHistorialTxt()
+        {
+            StreamWriter escritor = new StreamWriter("bitacora_combate.txt");
+
+            foreach (string efecto in pilaHistorialEfectos)
+            {
+                escritor.WriteLine(efecto);
+            }
+
+            escritor.Close();
+
+            MessageBox.Show("Se guardó la bitácora al finalizar la partida.", "Aviso");
+        }
+
+        // CONEXIÓN EN RED (SOCKETS)
+
+        public void IniciarServidor()
+        {
+            try
+            {
+                int puerto = 5000;
+                TcpListener servidor = new TcpListener(IPAddress.Any, puerto);
+                servidor.Start();
+
+                MessageBox.Show("Servidor esperando conexión en el puerto " + puerto, "Aviso");
+
+                TcpClient cliente = servidor.AcceptTcpClient();
+                NetworkStream flujo = cliente.GetStream();
+                StreamReader lector = new StreamReader(flujo);
+
+                string mensajeRecibido = lector.ReadLine();
+                MessageBox.Show("Mensaje recibido: " + mensajeRecibido, "Aviso");
+
+                RegistrarEfecto("Red: " + mensajeRecibido);
+
+                lector.Close();
+                flujo.Close();
+                cliente.Close();
+                servidor.Stop();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error en el servidor: " + error.Message, "Aviso");
+            }
+        }
+
+        public void ConectarCliente(string ip)
+        {
+            try
+            {
+                int puerto = 5000;
+                TcpClient cliente = new TcpClient(ip, puerto);
+                NetworkStream flujo = cliente.GetStream();
+                StreamWriter escritor = new StreamWriter(flujo);
+
+                string mensaje = "Acción del turno enviada por el Jugador " + jugadorActivo;
+                escritor.WriteLine(mensaje);
+                escritor.Flush();
+
+                MessageBox.Show("Mensaje enviado con éxito: " + mensaje, "Aviso");
+
+                escritor.Close();
+                flujo.Close();
+                cliente.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al conectar con el servidor: " + error.Message, "Aviso");
             }
         }
     }
